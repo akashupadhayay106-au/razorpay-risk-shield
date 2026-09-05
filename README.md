@@ -18,8 +18,7 @@ gracefully via cold-start and circuit-breaker fallbacks.
 
 ## 🖥️ Live Demo
 
-> 📍 **Dashboard (Streamlit Cloud):** `https://razorpay-risk-shield-<random>.streamlit.app`
-> *(paste your actual URL here after deploying — see [`deploy_streamlit.md`](deploy_streamlit.md).)*
+> 📍 **Dashboard (Streamlit Cloud):** `https://kalicharan-razorpay-risk-shield.streamlit.app/`
 
 Quick reference for the API + dashboard: see
 [`sample_curl_commands.md`](sample_curl_commands.md).
@@ -188,11 +187,13 @@ curl -X POST "http://127.0.0.1:8000/assess_risk" \
 
 ## 📊 Dashboard
 
-- **Metric cards** — Precision, Recall, F1, FPR, Total Cost Saved (₹).
-- **Confusion matrix heatmap** with a **threshold slider (0.30–0.90)** that
-  recalculates the matrix and cost in real time.
-- **Audit log table** — the last 50 transactions from `audit.db`.
-- **Risk-score histogram** — approved vs. declined score distributions.
+The dashboard has been completely rewritten into a **stunning, professional, user-friendly SaaS-style interface** designed to be easily understood by non-technical users within 30 seconds:
+
+- **🏠 Home** — A welcoming hero section explaining the value proposition and showing the total cost saved.
+- **📊 Main Analytics** — Metric cards (Precision, Recall, False Positive Rate, Cost Saved) with plain-English tooltips. A dynamic confusion matrix and threshold slider to see cost impact in real-time. Insightful charts showing Risk Score Distribution and Fraud Rate by Payment Method.
+- **🔬 Test Transaction (Simulator)** — Manually enter transaction details and get an instant Risk Score, Action badge (Approve/Review/Decline), and a plain-English SHAP explanation of why the decision was made.
+- **📖 How It Works** — A jargon-free, 4-step visual guide explaining the ML pipeline to merchants.
+- **📋 Audit Log** — A searchable, filterable table of the transaction history with CSV download capabilities.
 
 ---
 
