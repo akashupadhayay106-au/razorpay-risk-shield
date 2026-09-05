@@ -1,0 +1,22 @@
+# Render.com one-click deployment for the RiskShield AI API.
+services:
+  - type: web
+    name: risk-shield-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python data/generate_data.py && python src/train_model.py
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: MODEL_PATH
+        value: models/risk_model.pkl
+      - key: SCALER_PATH
+        value: models/scaler.pkl
+      - key: FEATURE_NAMES_PATH
+        value: models/feature_names.pkl
+      - key: FP_COST
+        value: "500"
+      - key: FN_COST
+        value: "2500"
+      - key: LOG_LEVEL
+        value: INFO

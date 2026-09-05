@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+xgboost>=3.0.0
+shap>=0.47.0
+streamlit
+matplotlib
+seaborn
+pytest
+python-dotenv
+sqlalchemy
+joblib
+httpx

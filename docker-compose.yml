@@ -1,0 +1,41 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: risk-shield-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./audit.db:/app/audit.db
+    environment:
+      - MODEL_PATH=models/risk_model.pkl
+      - SCALER_PATH=models/scaler.pkl
+      - FEATURE_NAMES_PATH=models/feature_names.pkl
+      - FP_COST=500
+      - FN_COST=2500
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: risk-shield-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./audit.db:/app/audit.db
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    environment:
+      - MODEL_PATH=models/risk_model.pkl
+      - SCALER_PATH=models/scaler.pkl
+      - FEATURE_NAMES_PATH=models/feature_names.pkl
+    depends_on:
+      - api
+    restart: unless-stopped

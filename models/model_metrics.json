@@ -1,0 +1,35 @@
+{
+    "precision": 0.129,
+    "recall": 0.3596,
+    "f1_score": 0.1899,
+    "fpr": 0.205,
+    "roc_auc": 0.5881,
+    "confusion_matrix": {
+        "tn": 2749,
+        "fp": 709,
+        "fn": 187,
+        "tp": 105
+    },
+    "cm": [
+        [
+            2749,
+            709
+        ],
+        [
+            187,
+            105
+        ]
+    ],
+    "threshold": 0.5,
+    "fp_cost": 500,
+    "fn_cost": 2500,
+    "total_cost_baseline": 658000,
+    "total_cost_ml": 822000,
+    "total_cost_saved": -164000,
+    "best_params": {
+        "learning_rate": 0.05,
+        "max_depth": 8,
+        "n_estimators": 300,
+        "subsample": 0.8
+    }
+}

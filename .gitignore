@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Environment / secrets
+.env
+
+# Runtime-generated artifacts (regenerated on demand)
+# NOTE: models/ and data/transactions.csv are committed so the Streamlit
+# dashboard works standalone on Streamlit Cloud without re-training.
+audit.db
+logs/
+*.log
+
+# Temp validation / training logs
+_validate.py
+_validate_api.py
+_import_check.py
+train_out.log
+train_err.log
+uvicorn_out.log
+uvicorn_err.log
+dash_out.log
+dash_err.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
